@@ -1,0 +1,42 @@
+/**
+ * @fileoverview JavaScript configuration for Vite/React project
+ * Provides module resolution, IntelliSense support, and import path aliases for improved developer experience
+ * Configures compilation targets, library support, and file inclusion patterns for optimal IDE integration
+ */
+
+{
+  "compilerOptions": {
+    // =================================================================
+    // MODULE RESOLUTION
+    // =================================================================
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@config/*": ["src/config/*"],
+      "@design-system/*": ["src/design-system/*"],
+      "@lib/*": ["src/lib/*"],
+      "@modules/*": ["src/modules/*"],
+      "@styles/*": ["src/assets/styles/*"],
+      "@utils/*": ["src/modules/core/utils/*"]
+    },
+
+    // =================================================================
+    // JAVASCRIPT/REACT CONFIGURATION
+    // =================================================================
+    "jsx": "react-jsx",
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true
+  },
+  "include": ["src/**/*.js", "src/**/*.jsx"],
+  "exclude": ["node_modules", "dist", "build", "coverage"]
+}
