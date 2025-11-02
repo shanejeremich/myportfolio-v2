@@ -10,6 +10,7 @@ import js from "@eslint/js";
 import importPlugin from "eslint-plugin-import";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import noRelativeImportPaths from "eslint-plugin-no-relative-import-paths";
+import perfectionist from "eslint-plugin-perfectionist";
 import reactPlugin from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
@@ -61,6 +62,7 @@ const eslintConfig = [
       sonarjs: sonarjs,
       unicorn: unicorn,
       import: importPlugin,
+      perfectionist: perfectionist,
     },
     settings: {
       react: {
@@ -104,7 +106,7 @@ const eslintConfig = [
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
 
-      "react/prop-types": "error",
+      "react/prop-types": "off", // Disabled for personal project
       "react/jsx-key": "error",
       "react/jsx-no-duplicate-props": "error",
       "react/jsx-no-target-blank": "error",
@@ -112,14 +114,24 @@ const eslintConfig = [
       "react/jsx-pascal-case": "error",
       "react/jsx-fragments": ["error", "syntax"],
       "react/jsx-no-useless-fragment": "error",
-      "react/jsx-sort-props": [
+      "react/jsx-sort-props": "off", // Disabled in favor of perfectionist/sort-jsx-props
+
+      // =================================================================
+      // PERFECTIONIST - JSX PROPS SORTING (className first)
+      // =================================================================
+      "perfectionist/sort-jsx-props": [
         "warn",
         {
-          callbacksLast: true,
-          shorthandFirst: true,
-          noSortAlphabetically: false,
-          reservedFirst: true,
+          type: "alphabetical",
+          order: "asc",
           ignoreCase: false,
+          groups: ["className", "shorthand", "multiline", "unknown"],
+          customGroups: [
+            {
+              groupName: "className",
+              elementNamePattern: "^className$",
+            },
+          ],
         },
       ],
       "react/prefer-stateless-function": "error",
@@ -204,17 +216,27 @@ const eslintConfig = [
         },
       ],
 
-      // Enable import resolution checking
+      // Enable import resolution checking (ignore CSS and assets as Vite handles them)
       "import/no-unresolved": [
         "error",
         {
           caseSensitive: true,
           ignore: [
             "\\.css$",
-            "\\.scss$", // ✅ SCSS covered
-            "\\.sass$", // ✅ Sass covered too
+            "\\.scss$",
+            "\\.sass$",
             "\\.less$",
-            // ... other assets
+            "\\.svg$",
+            "\\.png$",
+            "\\.jpg$",
+            "\\.jpeg$",
+            "\\.gif$",
+            "\\.webp$",
+            "\\.ico$",
+            "\\.mp4$",
+            "\\.webm$",
+            "\\.mp3$",
+            "\\.wav$",
           ],
         },
       ],
