@@ -36,3 +36,129 @@
   backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+.glitch {
+  font-size: 4.5rem;
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  position: relative;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 2rem;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 0.8rem 2rem;
+  border-radius: 3.125rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 10rem;
+}
+
+.primaryButton {
+  background: #fff;
+  color: var(--color-primary);
+  box-shadow: 0 0.25rem 0.9375rem rgba(255, 255, 255, 0.2);
+  border: 2px solid #fff;
+}
+
+.secondaryButton {
+  background: transparent;
+  color: #fff;
+  box-shadow: 0 0.25rem 0.9375rem rgba(246, 153, 153, 0.2);
+  border: 2px solid #fff;
+  backdrop-filter: blur(5px);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2));
+    transition: all 0.5s ease;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+
+  a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+    min-width: auto;
+    padding-top: 7.5rem;
+  }
+
+  .content {
+    text-align: center;
+    min-width: 100%;
+  }
+
+  .ctaButtons {
+    justify-content: center;
+  }
+
+  .glitch {
+    font-size: 3.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+}

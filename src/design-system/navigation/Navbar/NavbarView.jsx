@@ -1,4 +1,4 @@
-const NavbarView = ({ NavItem, fadeInUp, motion, staggerContainer, styles: s = {} }) => (
+const NavbarView = ({ NavItem, ROUTES, fadeInUp, motion, staggerContainer, styles: s = {} }) => (
   <motion.nav
     className={s.navbar}
     animate={{ y: 0 }}
@@ -13,16 +13,16 @@ const NavbarView = ({ NavItem, fadeInUp, motion, staggerContainer, styles: s = {
       animate="animate"
       initial="initial"
       variants={staggerContainer}>
-      <NavItem href="/" motion={motion} variants={fadeInUp}>
+      <NavItem href={ROUTES.HOME.path} motion={motion} variants={fadeInUp}>
         Home
       </NavItem>
-      <NavItem href="/" motion={motion} variants={fadeInUp}>
+      <NavItem href={ROUTES.ABOUT.path} motion={motion} variants={fadeInUp}>
         About
       </NavItem>
-      <NavItem href="/" motion={motion} variants={fadeInUp}>
+      <NavItem href={ROUTES.PROJECTS.path} motion={motion} variants={fadeInUp}>
         Projects
       </NavItem>
-      <NavItem href="/" motion={motion} variants={fadeInUp}>
+      <NavItem href={ROUTES.CONTACT.path} motion={motion} variants={fadeInUp}>
         Contact
       </NavItem>
     </motion.ul>

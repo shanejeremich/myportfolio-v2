@@ -1,0 +1,146 @@
+/* Box sizing and reset of spacing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Make form controls inherit font sizing from the document */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Prefer both color schemes where supported */
+html {
+  color-scheme: dark light;
+}
+
+/* Prevent text size inflation on mobile while preserving accessibility */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Full-height root */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Core body defaults */
+body {
+  line-height: 1.5;
+  margin: 0;
+  font-family: var(
+    --font-family,
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif
+  );
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Images and media */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Headings and interactive elements: slightly tighter line-height */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.15;
+}
+
+/* Headings: progressive enhancement for balanced wrapping plus fallbacks */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance; /* progressive */
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+/* Paragraph width control and wrapping fallbacks */
+p,
+li,
+figcaption {
+  max-width: 65ch;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+/* Container queries (progressive enhancement) */
+header,
+footer,
+main,
+section,
+article {
+  container-type: inline-size;
+}
+
+/* Anchor defaults */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Textarea sensible default */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anchor target scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Root typographic helpers using token scale */
+h1 {
+  font-size: var(--fs-xl);
+  margin: 0 0 var(--space-3) 0;
+}
+h2 {
+  font-size: var(--fs-lg);
+  margin: 0 0 var(--space-3) 0;
+}
+p {
+  font-size: var(--fs-md);
+  margin: 0 0 var(--space-3) 0;
+}

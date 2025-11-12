@@ -17,7 +17,7 @@
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--accent-color);
+  color: var(--color-accent);
   text-shadow: 0 0 0.625rem rgba(244, 114, 182, 0.7);
 }
 
@@ -27,7 +27,7 @@
   list-style: none;
 
   & a {
-    color: var(--text-color);
+    color: var(--color-text);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -41,12 +41,12 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--accent-color);
+      background: var(--color-accent);
       transition: width 0.3s ease;
     }
 
     &:hover {
-      color: var(--accent-color);
+      color: var(--color-accent);
 
       &::after {
         width: 100%;

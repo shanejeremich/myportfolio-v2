@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 
+import ROUTES from "@config/routes";
+
 import NavItem from "./components/NavItem";
 import NavbarView from "./NavbarView";
 import useNavbar from "./useNavbar";
@@ -13,6 +15,7 @@ const Navbar = () => {
       fadeInUp={fadeInUp}
       motion={motion}
       NavItem={NavItem}
+      ROUTES={ROUTES}
       staggerContainer={staggerContainer}
       styles={styles}
     />
